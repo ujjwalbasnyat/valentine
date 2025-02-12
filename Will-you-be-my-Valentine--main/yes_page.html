@@ -8,13 +8,30 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="header_text">With this yes, my heart is set,
-            I’m yours forever—no regret.
-            No more waiting, no more clue,
-            From this moment, I’m committed to you. Musi</h1>
+        <h1 class="header_text">
+            With this yes, my heart is set,  
+            I’m yours forever—no regret.  
+            No more waiting, no more clue,  
+            From this moment, I’m committed to you.
+        </h1>
+
         <div class="gif_container">
             <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif">
         </div>
+
+        <!-- Audio Element -->
+        <audio id="valentineAudio" autoplay loop>
+            <source src="song.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const audio = document.getElementById('valentineAudio');
+                audio.play().catch(error => {
+                    console.log("Autoplay blocked. Waiting for user interaction.");
+                });
+            });
+        </script>
     </div>
 </body>
 </html>

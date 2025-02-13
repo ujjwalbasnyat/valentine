@@ -10,10 +10,11 @@ body {
 
 .container {
     text-align: center;
+    margin:10vh;
 }
 
 .header_text {
-    font-size: 3em;
+    font-size: 2em;
     color: #d32f2f;
 }
 

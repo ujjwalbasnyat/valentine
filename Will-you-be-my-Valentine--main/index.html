@@ -8,25 +8,46 @@
 </head>
 <body>
     <div class="container">
-        <h1>Hey! Honey will you be my Valentine ❤️?</h1>
+        <h1>Hey! Honey, will you be my Valentine ❤️?</h1>
         <div class="buttons">
             <button class="yes-button" onclick="handleYesClick()">Huss</button>
             <button class="no-button" onclick="handleNoClick()">Nai</button>
         </div>
         <div class="gif_container">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
         </div>
+
+        <!-- Play/Pause Button -->
+        <button id="playPauseBtn">⏸ Pause Music</button>
     </div>
+
     <script src="script.js"></script>
+    
+    <!-- Audio Element -->
     <audio id="valentineAudio" autoplay loop>
         <source src="song2.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const audio = document.getElementById('valentineAudio');
-            audio.play().catch(error => {
+            const playPauseBtn = document.getElementById('playPauseBtn');
+
+            // Try to autoplay
+            audio.play().catch(() => {
                 console.log("Autoplay blocked. Waiting for user interaction.");
+                playPauseBtn.textContent = "▶️ Play Music"; // Update button if autoplay fails
+            });
+
+            // Play/Pause Button Functionality
+            playPauseBtn.addEventListener("click", function () {
+                if (audio.paused) {
+                    audio.play();
+                    playPauseBtn.textContent = "⏸ Pause Music";
+                } else {
+                    audio.pause();
+                    playPauseBtn.textContent = "▶️ Play Music";
+                }
             });
         });
     </script>

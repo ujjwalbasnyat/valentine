@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <h1>Hey! Honey, will you be my Valentine ❤️?</h1>
+        <button id="playPauseBtn">⏸ Pause Music</button>
         <div class="buttons">
             <button class="yes-button" onclick="handleYesClick()">Huss</button>
             <button class="no-button" onclick="handleNoClick()">Nai</button>
@@ -17,8 +18,6 @@
             <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
         </div>
 
-        <!-- Play/Pause Button -->
-        <button id="playPauseBtn">⏸ Pause Music</button>
     </div>
 
     <script src="script.js"></script>
@@ -36,17 +35,17 @@
             // Try to autoplay
             audio.play().catch(() => {
                 console.log("Autoplay blocked. Waiting for user interaction.");
-                playPauseBtn.textContent = "▶️ Play Music"; // Update button if autoplay fails
+                playPauseBtn.textContent = "▶️ Touch me before saying Huss "; // Update button if autoplay fails
             });
 
             // Play/Pause Button Functionality
             playPauseBtn.addEventListener("click", function () {
                 if (audio.paused) {
                     audio.play();
-                    playPauseBtn.textContent = "⏸ Pause Music";
+                    playPauseBtn.textContent = "⏸ Stop playing";
                 } else {
                     audio.pause();
-                    playPauseBtn.textContent = "▶️ Play Music";
+                    playPauseBtn.textContent = "▶️ Play Again";
                 }
             });
         });
